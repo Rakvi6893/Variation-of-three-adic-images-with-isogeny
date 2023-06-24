@@ -1,0 +1,40 @@
+// Example for G, replace the information as necessary
+N:=3;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[0,1,2,1],[1,2,0,2]]>;
+
+// We now try to conjugate G to a subgroup of upper triangular matrices modulo 3
+
+T:={};
+for g in GL(2,Integers(3)) do;
+ if g[2,1] eq 0 then T:=T join {g}; end if;
+end for;
+ 
+Bor:=sub<GL(2,Integers(3))|[g:g in T]>;
+red:=hom<GL2->GL(2,Integers(3))|[GL(2,Integers(3))!GL2.i:i in 
+[1..#Generators(GL2)]]>;
+Gred:=red(G);
+for H in Subgroups(Bor) do;
+if IsConjugate(GL(2,Integers(3)),H`subgroup,Gred) eq true then
+_,A:=IsConjugate(GL(2,Integers(3)),H`subgroup,Gred);
+end if;
+end for;
+
+Pi:=hom<GL(2,Integers(27))->GL2|[GL2!GL(2,Integers(27)).i:i in 
+[1..#Generators(GL(2,Integers(27)))]]>;
+
+G:=G@@Pi;
+S:={};
+for g1 in Generators(G) do;
+A:=GL(2,Integers(27))!A;
+g:=A*g1*A^(-1);
+X:=Integers()!g[2,1];
+X:=X/3;
+X:=Integers(27)!X;
+a:=Integers(27)!g[1,1];
+b:=Integers(27)!g[1,2];
+c:=Integers(27)!g[2,2];
+
+S:=S join {GL(2,Integers(27))![a,3*b,X,c]};
+end for;
+G1:=sub<GL(2,Integers(27))|[g:g in S]>; // G1 is the group we want
