@@ -1,7 +1,11 @@
 // Example for G, replace the information as necessary
-N:=3;
+function threeadicimageisogeny(N,G)
+//Input : G is three adic Galois image of E that admits a degree three isogeny to E', N is its level
+//Output : Three adic Galois image of E' as a subgroup of GL_2(Z/27Z)
+
+
 GL2:=GL(2,Integers(N));
-G:=sub<GL2|[[0,1,2,1],[1,2,0,2]]>;
+
 
 // We now try to conjugate G to a subgroup of upper triangular matrices modulo 3
 
@@ -37,4 +41,6 @@ c:=Integers(27)!g[2,2];
 
 S:=S join {GL(2,Integers(27))![a,3*b,X,c]};
 end for;
-G1:=sub<GL(2,Integers(27))|[g:g in S]>; // G1 is the group we want
+G1:=sub<GL(2,Integers(27))|[g:g in S]>; 
+return G1;
+end function;
