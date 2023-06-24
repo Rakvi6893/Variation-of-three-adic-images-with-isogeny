@@ -1,7 +1,7 @@
 function RationalCusps(N,G)
 
-\\Input : Here G is a subgroup of GL_2(Z/nZ) that has full determinant and contains -I, N is the level of G.  
-\\Output : The number of rational cusps of modular curve X_G
+//Input : Here G is a subgroup of GL_2(Z/nZ) that has full determinant and contains -I, N is the level of G.  
+//Output : The number of rational cusps of modular curve X_G
 
 GL2:=GL(2,Integers(N));
 U:=sub<GL2|[[-1,0,0,-1],[1,1,0,1]]>;
