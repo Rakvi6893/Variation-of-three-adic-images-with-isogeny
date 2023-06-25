@@ -1,0 +1,87 @@
+N:=45;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[22,43,37,32],[23,22,6,22],[24,29,10,21],[33,43,25,2]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(FiniteField(3),7);
+for i in [1..7] do;
+    x[i]:=P2.i;
+end for;
+C:=Scheme(P2,Model);
+//Points(C);
+
+
+// Checking if (0,0,0,0,0,1,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+for e in Integers(9) do;
+for f in Integers(9) do;
+for g in Integers(9) do;
+for h in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 0 and Integers()!d mod 3 eq 0 and
+Integers()!e mod 3 eq 0 and Integers()!f mod 3 eq 1 and Integers()!g mod 3 eq 2 and Integers()!h mod 3 eq 1 then
+if [a,b,c,d,e,f,g,h] in C eq true then [a,b,c,d,e,f,g,h];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;end for;end for;end for;end for;
+
+// Checking if (0,0,1,1,2,1,2,1) lifts
+
+for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+for e in Integers(9) do;
+for f in Integers(9) do;
+for g in Integers(9) do;
+for h in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1 and
+Integers()!e mod 3 eq 2 and Integers()!f mod 3 eq 1 and Integers()!g mod 3 eq 2 and Integers()!h mod 3 eq 1 then
+if [a,b,c,d,e,f,g,h] in C eq true then [a,b,c,d,e,f,g,h];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;end for;end for;end for;end for;
+
+// Checking if (2,2,0,1,1,2,1,0) lifts
+
+for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+for e in Integers(9) do;
+for f in Integers(9) do;
+for g in Integers(9) do;
+for h in Integers(9) do;
+if Integers()!a mod 3 eq 2 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 0 and Integers()!d mod 3 eq 1 and
+Integers()!e mod 3 eq 1 and Integers()!f mod 3 eq 2 and Integers()!g mod 3 eq 1 and Integers()!h mod 3 eq 0 then
+if [a,b,c,d,e,f,g,h] in C eq true then [a,b,c,d,e,f,g,h];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;end for;end for;end for;end for;
+
+// Checking if (2,2,2,0,2,2,1,0) lifts
+
+for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+for e in Integers(9) do;
+for f in Integers(9) do;
+for g in Integers(9) do;
+for h in Integers(9) do;
+if Integers()!a mod 3 eq 2 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 0 and
+Integers()!e mod 3 eq 2 and Integers()!f mod 3 eq 2 and Integers()!g mod 3 eq 1 and Integers()!h mod 3 eq 0 then
+if [a,b,c,d,e,f,g,h] in C eq true then [a,b,c,d,e,f,g,h];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;end for;end for;end for;end for;
+
+// None of these lift!
