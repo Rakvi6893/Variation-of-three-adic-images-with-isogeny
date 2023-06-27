@@ -101,3 +101,27 @@ for i in [1..14] do;
 end for;
 C:=Scheme(P2,Model);
 Points(C);
+
+//9.27.0.1 x X0(13)
+
+GL2:=GL(2,Integers(9*13));
+G:=sub<GL(2,Integers(13))|[[2,2,0,3],[2,6,0,8]]>;
+Ggen:=Generators(G);
+Red:=hom<GL2->GL(2,Integers(13))|[GL(2,Integers(13))!GL2.i:i in [1..#Generators(GL2)]]>;
+Gred:=G@@Red;
+G9:=sub<GL(2,Integers(9))|[[0,2,4,1],[4,3,5,4],[4,5,0,5]]>;
+G9gen:=Generators(G9);
+Red9:=hom<GL2->GL(2,Integers(9))|[GL(2,Integers(9))!GL2.i:i in [1..#Generators(GL2)]]>;
+Gred9:=G9@@Red9;
+S:={};
+H:=Gred9 meet Gred;
+Grec:=CreateModularCurveRec(13*9,Generators(H));
+ Model:=FindModelOfXG(Grec,27)`psi;
+ x:=AssociativeArray();
+P2:=ProjectiveSpace(FiniteField(5),25);
+for i in [1..26] do;
+    x[i]:=P2.i;
+end for;
+C:=Scheme(P2,Model);
+Points(C); // empty
+ 
