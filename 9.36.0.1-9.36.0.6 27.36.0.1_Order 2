@@ -37,19 +37,22 @@ RationalCusps(N,G); // they are equal
 
 //9.36.0.3 X X0(2)
 
+
 N:=18;
 GL2:=GL(2,Integers(N));
 G:=sub<GL2|[[5,0,6,5],[13,9,6,5],[17,12,12,1]]>;
 Grec:=CreateModularCurveRec(N,Generators(G));
 Model:=FindModelOfXG(Grec,27)`psi;
 x:=AssociativeArray();
-P2:=ProjectiveSpace(FiniteField(3),3);
+P2:=ProjectiveSpace(Rationals(),3);
 for i in [1..4] do;
     x[i]:=P2.i;
 end for;
 C:=Scheme(P2,Model);
-Points(C);
+C3:=Reduction(C,3);
+Points(C3);
 
+//@ (0 : 0 : 2 : 1), (0 : 1 : 2 : 1), (0 : 2 : 2 : 1), (1 : 0 : 2 : 1), (1 : 1 : 2 : 1), (1 : 2 : 2 : 1), (0 : 1 : 0 : 0) @}
 
 // Checking if (0,0,2,1) lifts
 
@@ -58,7 +61,8 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
@@ -71,7 +75,8 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
@@ -84,12 +89,12 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
 end for;end for;end for;end for;
-
 
 // Checking if (1,0,2,1) lifts
 
@@ -98,7 +103,8 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
@@ -111,7 +117,8 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
@@ -124,7 +131,8 @@ for b in Integers(9) do;
 for c in Integers(9) do;
 for d in Integers(9) do;
 if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
@@ -132,19 +140,19 @@ end for;end for;end for;end for;
 
 // Checking if (0,1,0,0) lifts
 
- for a in Integers(9) do;
-for b in Integers(9) do;
-for c in Integers(9) do;
-for d in Integers(9) do;
+ for a in Integers(27) do;
+for b in Integers(27) do;
+for c in Integers(27) do;
+for d in Integers(27) do;
 if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 0 and Integers()!d mod 3 eq 0  then
-if [a,b,c,d] in C eq true then [a,b,c,d];
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 27 eq 0 and Integers()!S[2] mod 27 eq 0 and Integers()!S[3] mod 27 eq 0 and Integers()!S[4] mod 27 eq 0 and Integers()!S[5] mod 27 eq 0 and Integers()!S[6] mod 27 eq 0  then [a,b,c,d];
 end if;
 else continue;
 end if;
 end for;end for;end for;end for;
 
-//None of these lift!
-
+// None of these lift!
 //9.36.0.4 x X0(2)
 
 N:=18;
@@ -184,4 +192,138 @@ RationalCusps(N,G); // they are equal
 
 //9.36.0.6 x X0(2)
 
+
+N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[11,10,0,11],[11,14,0,7],[17,15,0,1]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Scheme(P2,Model);
+C3:=Reduction(C,3);
+Points(C3);
+
+//{@ (0 : 0 : 1 : 1), (0 : 1 : 1 : 1), (1 : 1 : 1 : 1), (1 : 2 : 1 : 1), (2 : 0 : 1 : 1), (2 : 2 : 1 : 1), (1 : 1 : 0 : 0) @}
+
+// Checking if (0,0,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (0,1,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (1,1,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (1,2,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (2,0,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 2 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (2,2,1,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 2 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 1 and Integers()!d mod 3 eq 1  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 9 eq 0 and Integers()!S[2] mod 9 eq 0 and Integers()!S[3] mod 9 eq 0 and Integers()!S[4] mod 9 eq 0 and Integers()!S[5] mod 9 eq 0 and Integers()!S[6] mod 9 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (1,1,0,0) lifts
+
+ for a in Integers(27) do;
+for b in Integers(27) do;
+for c in Integers(27) do;
+for d in Integers(27) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 0 and Integers()!d mod 3 eq 0  then
+S:=[Evaluate(DefiningEquations(C)[i],[a,b,c,d]): i in [1..#DefiningEquations(C)]];
+if Integers()!S[1] mod 27 eq 0 and Integers()!S[2] mod 27 eq 0 and Integers()!S[3] mod 27 eq 0 and Integers()!S[4] mod 27 eq 0 and Integers()!S[5] mod 27 eq 0 and Integers()!S[6] mod 27 eq 0  then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// None of these lift!
+
+27.36.0.1 x X0(2)
+
+N:=54;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[7,25,36,29],[7,33,0,37],[53,46,18,29]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Curve(P2,Model);
+_,C0:=IsHyperelliptic(C);
+C1,_:=SimplifiedModel(C0);
+#Chabauty0(Jacobian(C1));
+RationalCusps(N,G); // they are equal
 
