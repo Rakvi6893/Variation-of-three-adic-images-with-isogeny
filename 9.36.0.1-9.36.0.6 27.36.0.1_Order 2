@@ -1,3 +1,187 @@
-9.36.0.1 x X0(2)
+//9.36.0.1 x X0(2)
 
 N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[5,9,12,1],[7,15,0,17],[11,0,6,1]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Curve(P2,Model);
+_,C0:=IsHyperelliptic(C);
+C1,_:=SimplifiedModel(C0);
+#Chabauty0(Jacobian(C1));
+RationalCusps(N,G); // they are equal
+
+
+//9.36.0.2 x X0(2)
+
+N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[7,15,6,11],[11,3,6,17],[11,12,6,17]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Curve(P2,Model);
+_,C0:=IsHyperelliptic(C);
+C1,_:=SimplifiedModel(C0);
+#Chabauty0(Jacobian(C1));
+RationalCusps(N,G); // they are equal
+
+//9.36.0.3 X X0(2)
+
+N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[5,0,6,5],[13,9,6,5],[17,12,12,1]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(FiniteField(3),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Scheme(P2,Model);
+Points(C);
+
+
+// Checking if (0,0,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (0,1,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (0,2,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+
+// Checking if (1,0,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 0 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (1,1,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (1,2,2,1) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 1 and Integers()!b mod 3 eq 2 and Integers()!c mod 3 eq 2 and Integers()!d mod 3 eq 1  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+// Checking if (0,1,0,0) lifts
+
+ for a in Integers(9) do;
+for b in Integers(9) do;
+for c in Integers(9) do;
+for d in Integers(9) do;
+if Integers()!a mod 3 eq 0 and Integers()!b mod 3 eq 1 and Integers()!c mod 3 eq 0 and Integers()!d mod 3 eq 0  then
+if [a,b,c,d] in C eq true then [a,b,c,d];
+end if;
+else continue;
+end if;
+end for;end for;end for;end for;
+
+//None of these lift!
+
+//9.36.0.4 x X0(2)
+
+N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[17,1,0,11],[17,4,0,17],[17,10,0,1]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Curve(P2,Model);
+_,C0:=IsHyperelliptic(C);
+C1,_:=SimplifiedModel(C0);
+#Chabauty0(Jacobian(C1));
+RationalCusps(N,G); // they are equal
+
+
+//9.36.0.5 x X0(2)
+
+N:=18;
+GL2:=GL(2,Integers(N));
+G:=sub<GL2|[[1,17,0,17],[5,10,0,17],[13,9,0,1]]>;
+Grec:=CreateModularCurveRec(N,Generators(G));
+Model:=FindModelOfXG(Grec,27)`psi;
+x:=AssociativeArray();
+P2:=ProjectiveSpace(Rationals(),3);
+for i in [1..4] do;
+    x[i]:=P2.i;
+end for;
+C:=Curve(P2,Model);
+_,C0:=IsHyperelliptic(C);
+C1,_:=SimplifiedModel(C0);
+#Chabauty0(Jacobian(C1));
+RationalCusps(N,G); // they are equal
+
+//9.36.0.6 x X0(2)
+
+
