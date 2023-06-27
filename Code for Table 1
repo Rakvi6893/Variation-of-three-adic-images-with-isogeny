@@ -1,4 +1,3 @@
-// Example for G, replace the information as necessary
 function threeadicimageisogeny(N,G)
 //Input : G is three adic Galois image of E that admits a degree three isogeny to E', N is its level
 //Output : Three adic Galois image of E' as a subgroup of GL_2(Z/27Z)
